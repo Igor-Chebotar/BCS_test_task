@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Транзакции</title>
+</head>
+<body>
+    <form method="post">
+    {% csrf_token %}
+        <div><button onclick="">Отправить транзакцию</button></div>
+</form>
+<table>
+    <tr>
+        <th>
+            <center>ID</center>
+        </th>
+        <th>
+            <center>Описание</center>
+        </th>
+
+    </tr>
+    {% for transaction in transactions%}
+    <tr>
+        <td><a>{{transaction.bcs_id}}</a></td>
+        <td><a href="{{transaction.bcs_id}}">Смотреть описание транзакции {{transaction.bcs_id}}</a></td>
+
+        <!--        <td><a>{{transaction.description}}</a></td>-->
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
